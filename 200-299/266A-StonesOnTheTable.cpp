@@ -1,18 +1,19 @@
 #include <iostream>
-#include <cstdio>
+#include <string>
 using namespace std;
 
-int main(){
-    int length; scanf("%d\n",&length);
-    string input; getline(cin, input);
-
-    int total = 0, index = 0;
-    char state = input[0];
-
-    while(++index < length){
-        if(input[index] == state){++total;}
-        else{state = input[index];}
+int main()
+{
+    int n,i,c=0;
+    cin >> n;
+    string s;
+    cin >> s;
+    for(i=1;i<n;i++)
+    {
+        if(s[i-1] == s[i])
+        {
+            c++;
+        }
     }
-    printf("%d\n",total);
-    return 0;
+    cout << c;
 }
