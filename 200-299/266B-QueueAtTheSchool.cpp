@@ -1,17 +1,28 @@
-#include <cstdio>
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main(){
-    int numKids, seconds;scanf("%d %d\n",&numKids, &seconds); 
-    string q; getline(cin, q);
-    while(seconds--){
-        int index = numKids - 1;
-        while(index >= 0){
-            index--;
-            if(q[index] == 'B' && q[index + 1] == 'G'){q[index] = 'G'; q[index + 1] = 'B'; index--;}
+int main()
+{
+    int n,t,i,j;
+    cin >> n >> t;
+    string s;
+    cin >> s;
+    for(i=0; i<t; i++)
+    {
+        j=1;
+        while(j < n)
+        {
+            if(s[j-1] == 'B' && s[j] == 'G')
+            {
+                swap(s[j-1],s[j]);
+                j += 2;
+            }
+            else
+            {
+                j++;
+            }
         }
     }
-    cout << q << endl;
-    return 0;
+    cout << s;
 }
