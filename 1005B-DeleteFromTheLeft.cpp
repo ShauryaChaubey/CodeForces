@@ -1,19 +1,26 @@
 #include <iostream>
+#include <string>
 
-int main(){
+using namespace std;
 
-    std::string s, t; std::cin >> s >> t;
-
-    long moves(0);
-    bool diff(false);
-    for(long p = s.size() - 1, q = t.size() - 1; p >= 0 || q >= 0; p--, q--){
-        if(p < 0 || q < 0){++moves; continue;}
-        
-        if(s[p] != t[q]){diff = true;}
-        if(diff){moves += 2;}
+int main()
+{
+    string s,t;
+    cin >> s >> t;
+    long long int n, i=s.length()-1, j=t.length()-1, c=0;
+    while(i>=0 && j>=0)
+    {
+        if(s[i] == t[j])
+        {
+            c++;
+            i--;
+            j--;
+        }
+        else
+        {
+            break;
+        }
     }
-
-    std::cout << moves << std::endl;
-
-    return 0;
+    n = (s.length()+t.length())-(c*2);
+    cout << n;
 }
